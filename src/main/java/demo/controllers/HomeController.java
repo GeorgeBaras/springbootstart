@@ -1,6 +1,8 @@
 package demo.controllers;
 
+import demo.persistence.User;
 import demo.pojos.EmailService;
+import demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +18,15 @@ public class HomeController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping("/")
     public String home() throws MessagingException {
-        emailService.sendEmail("this is a test email");
-        System.out.print("email sent");
+//        emailService.sendEmail("this is a test email");
+//        System.out.print("email sent");
+        User user = new User("George",30);
+        userRepository.save(user);
         return "home";
     }
 

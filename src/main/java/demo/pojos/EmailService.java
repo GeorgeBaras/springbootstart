@@ -18,8 +18,8 @@ public class EmailService {
 
     public void sendEmail(String body) throws MessagingException {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom("georgebaras@gmail.com");
-        simpleMailMessage.setTo("georgebaras@gmail.com");
+        simpleMailMessage.setFrom("test@gmail.com");
+        simpleMailMessage.setTo("test@gmail.com");
         simpleMailMessage.setSubject("just a subject");
         simpleMailMessage.setText(body);
         javaMailSender.send(simpleMailMessage);

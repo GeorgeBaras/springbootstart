@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework</groupId>
-    <artifactId>gs-serving-web-content</artifactId>
+    <artifactId>springbootstart</artifactId>
     <version>0.1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.1.4.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -46,6 +46,11 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>2.1.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>2.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
