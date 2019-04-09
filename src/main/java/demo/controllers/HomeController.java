@@ -25,8 +25,6 @@ public class HomeController {
     public String home() throws MessagingException {
 //        emailService.sendEmail("this is a test email");
 //        System.out.print("email sent");
-        User user = new User("George",30);
-        userRepository.save(user);
         return "home";
     }
 
