@@ -2,14 +2,18 @@ package demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
+import javax.persistence.Entity;
 import java.util.Properties;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "demo.repositories")
+@EntityScan(basePackages = "demo.persistence")
 public class Application {
 
     public static void main(String[] args) {
