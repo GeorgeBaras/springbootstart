@@ -22,9 +22,9 @@ public class HomeController {
     private UserRepository userRepository;
 
     @RequestMapping("/")
-    public String home() throws MessagingException {
-//        emailService.sendEmail("this is a test email");
-//        System.out.print("email sent");
+    public String home(){
+        User user = new User("Random user" , 10);
+        this.userRepository.save(user);
         return "home";
     }
 
