@@ -38,10 +38,10 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!-- H2 Database uncomment this to use the inmemory db-->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--        </dependency>-->
         <!-- dependencies needed to connect to MariaDB -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
