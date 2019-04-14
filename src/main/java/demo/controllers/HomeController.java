@@ -23,8 +23,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        User user = new User("Random user" , 10);
-        this.userRepository.save(user);
         return "home";
     }
 
