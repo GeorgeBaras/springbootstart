@@ -1,8 +1,9 @@
 package demo.controllers;
 
 import demo.persistence.User;
-import demo.pojos.EmailService;
-import demo.repositories.UserRepository;
+import demo.services.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +15,17 @@ import javax.mail.MessagingException;
 
 @Controller
 public class HomeController {
+    private static final Logger logger = LogManager.getLogger(HomeController.class);
 
     @Autowired
-    private EmailService emailService;
-
-    @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @RequestMapping("/")
     public String home(){
+        User testUser = new User();
+        testUser.setUsername("test");
+        testUser.setPassword("pass");
+        userService.saveUser(testUser);
         return "home";
     }
 
