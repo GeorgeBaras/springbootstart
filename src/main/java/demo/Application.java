@@ -1,5 +1,6 @@
 package demo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -20,13 +21,25 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    @Value("${email.settings.host}")
+    private String host;
+
+    @Value("${email.settings.port}")
+    private int port;
+
+    @Value("${email.settings.username}")
+    private String username;
+
+    @Value("${email.settings.password}")
+    private String password;
+
     @Bean
-    public JavaMailSender getJavaMailSender() {
+    public JavaMailSender customJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
-        mailSender.setUsername("test@gmail.com");
-        mailSender.setPassword("pass");
+        mailSender.setHost(host);
+        mailSender.setPort(port);
+        mailSender.setUsername(username);
+        mailSender.setPassword(password);
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -34,7 +47,6 @@ public class Application {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.debug", "true");
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-
 
         return mailSender;
     }

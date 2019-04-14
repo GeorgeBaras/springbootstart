@@ -1,6 +1,7 @@
 package demo.controllers;
 
 import demo.persistence.User;
+import demo.services.EmailService;
 import demo.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,15 +18,8 @@ import javax.mail.MessagingException;
 public class HomeController {
     private static final Logger logger = LogManager.getLogger(HomeController.class);
 
-    @Autowired
-    private UserService userService;
-
     @RequestMapping("/")
     public String home(){
-        User testUser = new User();
-        testUser.setUsername("test");
-        testUser.setPassword("pass");
-        userService.saveUser(testUser);
         return "home";
     }
 
