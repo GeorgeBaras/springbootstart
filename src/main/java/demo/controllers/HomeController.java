@@ -1,5 +1,6 @@
 package demo.controllers;
 
+import demo.Constants;
 import demo.persistence.User;
 import demo.services.EmailService;
 import demo.services.UserService;
@@ -15,18 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.mail.MessagingException;
 
 @Controller
-public class HomeController {
+public class HomeController implements Constants {
     private static final Logger logger = LogManager.getLogger(HomeController.class);
 
-    @RequestMapping("/")
+    @RequestMapping(Constants.HOME_URL)
     public String home(){
-        return "home";
+        return Constants.HOME_VIEW;
     }
 
-    @GetMapping("/greeting")
+    @GetMapping(Constants.GREETING_URL)
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
-        return "greeting";
+        return Constants.GREETING_VIEW;
     }
 
 
